@@ -1,16 +1,16 @@
 library(data.table)
 library(readr)
-# Define the directory containing the tar files
-directory = "/Users/xuhaifeng/Downloads/spatial_analysis_test/single cell sample/"
 
 # List all tar.gz files in the directory
+directory = "/Users/xuhaifeng/Downloads/spatial_analysis_test/single cell sample/"
 tar_files = list.files(directory, pattern = "\\.tar(\\.gz)?$", full.names = TRUE)
 
+# Create results objects
 combined_data_list <- list()
 combined_cell_type_list <- list()
-file_num = length(tar_files)
 
 setwd("/Users/xuhaifeng/Downloads/spatial_analysis_test/single cell sample/")
+file_num = length(tar_files)
 for (i in 1:file_num) {
   temp_dir = "/Users/xuhaifeng/Downloads/spatial_analysis_test/single cell sample/temp"
   dir.create(temp_dir)
