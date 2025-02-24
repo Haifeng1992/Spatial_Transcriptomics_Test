@@ -26,6 +26,9 @@ positions = read_csv("/Users/xuhaifeng/Downloads/spatial_analysis_test/spatial_s
 positions = cbind(positions$X1, positions$X5, positions$X6)
 positions = as.data.frame(positions)
 colnames(positions) = c("SpotID", "row", "col")
+rownames(positions) = positions$SpotID
+spots = colnames(counts_matrix)[2:ncol(counts_matrix)]
+positions = positions[spots,1:3]
 write.table(positions, file = "test_spatial_coordinates.txt", 
             sep = "\t", row.names = FALSE, quote = FALSE)
 
